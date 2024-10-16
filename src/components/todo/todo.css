@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+button {
+    cursor: pointer;
+}
+
 .todo-container {
     margin: 20vh auto;
     width: 600px;
