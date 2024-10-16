@@ -12,11 +12,15 @@ const App = () => {
     };
     // {key:value} => object
 
+    const addNewTodo = name => {
+        alert(`Hello ${name}`);
+    };
+    // addNewTodo();
     return (
         <>
             <div className="todo-container">
                 <div className="todo-title">Todo List</div>
-                <TodoNew />
+                <TodoNew addNewTodo={addNewTodo} />
                 {/* Truyền dữ liệu từ cha sang con */}
                 <TodoData name={name} age={age} data={data} address={data.address} />
                 <div className="todo-image">
