@@ -7,22 +7,21 @@ import { useState } from "react";
 const App = () => {
     // bien       sau khi chay cai nay se cap nhat ali bien
     const [todoList, setTodoList] = useState([
-        {
-            id: 1,
-            name: "Learning React",
-        },
-        {
-            id: 2,
-            name: "Watching Youtube",
-        },
+        // {
+        //     id: 1,
+        //     name: "Learning React",
+        // },
+        // {
+        //     id: 2,
+        //     name: "Watching Youtube",
+        // },
     ]);
-
-    const name = "meiizyyyy";
-    const age = "21";
-    const data = {
-        address: "Son Tay",
-        country: "Viet Nam",
-    };
+    // const name = "meiizyyyy";
+    // const age = "21";
+    // const data = {
+    //     address: "Son Tay",
+    //     country: "Viet Nam",
+    // };
     // {key:value} => object
 
     const addNewTodo = (name) => {
@@ -48,7 +47,10 @@ const App = () => {
                 <div className="todo-title">Todo List</div>
                 <TodoNew addNewTodo={addNewTodo} />
                 {/* Truyền dữ liệu từ cha sang con */}
-                <TodoData name={name} age={age} data={data} address={data.address} todoList={todoList} />
+                <TodoData
+                    // name={name} age={age} data={data} address={data.address}
+                    todoList={todoList}
+                />
                 <div className="todo-image">
                     <img src={reactLogo} className="logo" />
                 </div>

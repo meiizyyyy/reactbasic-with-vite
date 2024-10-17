@@ -2,7 +2,10 @@ const TodoData = (props) => {
     //props = object
     //use destructuring
 
-    const { name, age, data, todoList } = props;
+    const {
+        // name, age, data,
+        todoList,
+    } = props;
     //có thể hiểu dòng trên là:
     // const name = props.name;
     // const age = props.age;
@@ -10,11 +13,11 @@ const TodoData = (props) => {
     return (
         <>
             <div className="todo-list">
-                <div>My name is {name}</div>
+                {/* <div>My name is {name}</div> */}
                 {todoList.map((item, index) => {
                     console.log("check map ", item, index);
-                    return (
-                        <div className="todo-item">
+                    return ( 
+                        <div className="todo-item" key={item.id}>
                             <div>{item.name}</div>
                             <button>Delete</button>
                         </div>
@@ -24,7 +27,7 @@ const TodoData = (props) => {
                 {/* <div>Learning React</div>
                 <div>Watching Youtube</div> */}
 
-                <div>{JSON.stringify(props.todoList)}</div>
+                {/* <div>{JSON.stringify(props.todoList)}</div> */}
             </div>
         </>
     );
