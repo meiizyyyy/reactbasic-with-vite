@@ -5,10 +5,16 @@ const TodoData = (props) => {
     const {
         // name, age, data,
         todoList,
+        deleteTodo,
     } = props;
     //có thể hiểu dòng trên là:
     // const name = props.name;
     // const age = props.age;
+
+    const handleClick = (id) => {
+        // console.log(`Hello ${id}`);
+        deleteTodo(id);
+    };
 
     return (
         <>
@@ -16,10 +22,10 @@ const TodoData = (props) => {
                 {/* <div>My name is {name}</div> */}
                 {todoList.map((item, index) => {
                     console.log("check map ", item, index);
-                    return ( 
+                    return (
                         <div className="todo-item" key={item.id}>
                             <div>{item.name}</div>
-                            <button>Delete</button>
+                            <button onClick={() => handleClick(item.id)}>Delete</button>
                         </div>
                     );
                 })}

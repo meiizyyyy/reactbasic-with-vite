@@ -35,6 +35,12 @@ const App = () => {
         setTodoList([...todoList, newTodo]);
     };
 
+    const deleteTodo = (id) => {
+        console.log(id);
+        const newTodo = todoList.filter((item) => item.id !== id);
+        setTodoList(newTodo);
+    };
+
     //Ham random
     const randomIntFromInterval = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -68,6 +74,7 @@ const App = () => {
                         <TodoData
                             // name={name} age={age} data={data} address={data.address}
                             todoList={todoList}
+                            deleteTodo={deleteTodo}
                         />
                     </>
                 ) : (
