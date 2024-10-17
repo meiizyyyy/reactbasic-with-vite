@@ -47,13 +47,34 @@ const App = () => {
                 <div className="todo-title">Todo List</div>
                 <TodoNew addNewTodo={addNewTodo} />
                 {/* Truyền dữ liệu từ cha sang con */}
-                <TodoData
-                    // name={name} age={age} data={data} address={data.address}
-                    todoList={todoList}
-                />
-                <div className="todo-image">
-                    <img src={reactLogo} className="logo" />
-                </div>
+
+                {/* dieu kien  */}
+                {/* {todoList.length > 0 && (
+                    <>
+                        <TodoData
+                            // name={name} age={age} data={data} address={data.address}
+                            todoList={todoList}
+                        />
+                    </>
+                )}
+                {todoList.length === 0 && (
+                    <div className="todo-image">
+                        <img src={reactLogo} className="logo" />
+                    </div>
+                )} */}
+                {/* Toan tu 3 ngoi */}
+                {todoList.length > 0 ? (
+                    <>
+                        <TodoData
+                            // name={name} age={age} data={data} address={data.address}
+                            todoList={todoList}
+                        />
+                    </>
+                ) : (
+                    <div className="todo-image">
+                        <img src={reactLogo} className="logo" />
+                    </div>
+                )}
             </div>
         </>
     );
