@@ -3,6 +3,8 @@ import TodoData from "./components/todo/TodoData";
 import TodoNew from "./components/todo/TodoNew";
 import reactLogo from "./assets/react.svg";
 import { useState } from "react";
+import Header from "./components/layouts/Header";
+import Footer from "./components/layouts/Footer";
 
 const App = () => {
     // bien       sau khi chay cai nay se cap nhat ali bien
@@ -49,6 +51,7 @@ const App = () => {
     // addNewTodo();
     return (
         <>
+            <Header />
             <div className="todo-container">
                 <div className="todo-title">Todo List</div>
                 <TodoNew addNewTodo={addNewTodo} />
@@ -83,6 +86,7 @@ const App = () => {
                     </div>
                 )}
             </div>
+            <Footer />
         </>
     );
 };
