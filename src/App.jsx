@@ -5,6 +5,7 @@ import reactLogo from "./assets/react.svg";
 import { useState } from "react";
 
 const App = () => {
+    // bien       sau khi chay cai nay se cap nhat ali bien
     const [todoList, setTodoList] = useState([
         {
             id: 1,
@@ -24,9 +25,22 @@ const App = () => {
     };
     // {key:value} => object
 
-    const addNewTodo = name => {
-        alert(`Hello ${name}`);
+    const addNewTodo = (name) => {
+        const newTodo = {
+            id: randomIntFromInterval(1, 99999999),
+            name: name,
+        };
+        // array.push
+        // todoList.push(newTodo);
+        //khong nen thao tac truc tiep voi State
+        setTodoList([...todoList, newTodo]);
     };
+
+    //Ham random
+    const randomIntFromInterval = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+
     // addNewTodo();
     return (
         <>
