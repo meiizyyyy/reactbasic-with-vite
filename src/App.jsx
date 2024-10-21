@@ -5,6 +5,7 @@ import reactLogo from "./assets/react.svg";
 import { useState } from "react";
 import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
     // bien       sau khi chay cai nay se cap nhat ali bien
@@ -86,6 +87,8 @@ const App = () => {
                     </div>
                 )}
             </div>
+            <Outlet />
+
             <Footer />
         </>
     );
