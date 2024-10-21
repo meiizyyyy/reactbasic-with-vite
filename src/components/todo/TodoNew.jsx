@@ -20,7 +20,7 @@ const TodoNew = (props) => {
     return (
         <>
             <div className="todo-input">
-                <input type="text" autofocus onChange={(event) => handleOnChange(event.target.value)} value={valueInput} />
+                <input type="text" onChange={(event) => handleOnChange(event.target.value)} value={valueInput} />
                 <button onClick={handleClick}>Add</button>
                 <div>My text input: {valueInput} </div>
             </div>
