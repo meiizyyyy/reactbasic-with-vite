@@ -1,6 +1,7 @@
 import Input from "antd/es/input/Input";
 import { Button, Flex } from "antd";
 import { useState } from "react";
+import axios from "axios";
 
 const UserForm = () => {
     const [fullName, setFullName] = useState("");
@@ -11,6 +12,15 @@ const UserForm = () => {
     console.log("check var:", fullName, email, password, phone);
 
     const handleClickBtn = () => {
+        const URL_BACKEND = "http://localhost:8080/api/v1/user";
+        const data = {
+            // lấy gt từ State
+            fullName: fullName,
+            email: email,
+            password: password,
+            phone: phone,
+        };
+        axios.post(URL_BACKEND, data);
         console.log({ fullName, email, password, phone });
     };
     return (
