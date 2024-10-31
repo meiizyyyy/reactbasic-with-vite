@@ -4,6 +4,11 @@
     "name": "Hỏi Dân IT & Eric",
     "url": "https://hoidanit.vn"
   },
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 180,
+  "prettier.tabWidth": 4,
+  "prettier.useTabs": false,
+  "prettier.trailingComma": "all",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -20,7 +25,8 @@
     "open": "^10.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "@react-buddy/ide-toolbox": "^2.4.0"
   },
   "devDependencies": {
     "@types/react": "18.3.3",
