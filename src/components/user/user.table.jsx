@@ -1,9 +1,9 @@
-import { Space, Table, Tag, Drawer, Popconfirm, notification } from "antd";
+import { Table, Popconfirm, notification } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import UpdateUserModal from "./update.user.modal";
 import { useState } from "react";
 import ViewUserDetail from "./view.user.detail";
-import { deleteUserAPI, fetchAllUserAPI } from "../../services/api.service";
+import { deleteUserAPI } from "../../services/api.service";
 
 const UserTable = (props) => {
     const { dataUsers, loadUser } = props;

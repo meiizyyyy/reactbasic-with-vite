@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Drawer } from "antd";
-import Input from "antd/es/input/Input";
+import React, {  } from "react";
+import { Drawer } from "antd";
 const ViewUserDetail = (props) => {
     const { dataDetail, setDataDetail, isUserDetailOpen, setIsUserDetailOpen } = props;
 

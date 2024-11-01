@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Input from "antd/es/input/Input";
-import { Button, Flex, notification, Modal } from "antd";
-import { createUserAPI, updateUserAPI } from "../../services/api.service";
+import { notification, Modal } from "antd";
+import { updateUserAPI } from "../../services/api.service";
 
 const UpdateUserModal = (props) => {
     const [id, setId] = useState("");
