@@ -54,4 +54,17 @@ const updateUserAvatarAPI = (avatar, _id, fullName, phone) => {
     };
     return axios.put(URL_BACKEND, data);
 };
-export { createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI, handleUploadFile, updateUserAvatarAPI };
+
+const registerUserAPI = (fullName, email, password, phone) => {
+    const URL_BACKEND = "/api/v1/user/register";
+    const data = {
+        // lấy gt từ State
+        fullName: fullName,
+        email: email,
+        password: password,
+        phone: phone,
+    };
+    return axios.post(URL_BACKEND, data);
+};
+
+export { createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI, handleUploadFile, updateUserAvatarAPI, registerUserAPI };
