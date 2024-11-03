@@ -1,12 +1,14 @@
-import { Button, Input, Form, notification } from "antd";
+import { Button, Input, Form, notification, Row, Col, Divider } from "antd";
 import { registerUserAPI } from "../services/api.service";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./pages.css";
 
 const RegisterPage = () => {
     const [form] = Form.useForm();
 
     const navigate = useNavigate();
 
+    //antd onfinish
     const onFinish = async (values) => {
         console.log(values);
 
@@ -33,76 +35,103 @@ const RegisterPage = () => {
                 name="basic"
                 onFinish={onFinish}
                 // onFinishFailed={onFinishFailed}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        maxWidth: "1024px",
-                        margin: "0 auto",
-                        paddingTop: "100px",
-                    }}>
-                    <Form.Item
-                        label="Username"
-                        name="username"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your username!",
-                            },
-                        ]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Full Name"
-                        name="fullName"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your Name!",
-                            },
-                        ]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Email"
-                        name="email"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your Email!",
-                            },
-                        ]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your Password!",
-                            },
-                        ]}>
-                        <Input.Password />
-                    </Form.Item>
-                    <Form.Item
-                        label="Phone Number"
-                        name="phone"
-                        rules={[
-                            {
-                                required: true,
-                                pattern: new RegExp(/\d+/g),
-                                message: "Wrong format!",
-                            },
-                        ]}>
-                        <Input />
-                    </Form.Item>
+                style={{ margin: "10px", paddingTop: "100px" }}>
+                <Row justify={"center"}>
+                    <strong style={{ fontSize: "1.5rem", marginBottom: "20px" }}>Đăng ký tài khoản</strong>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Form.Item
+                            label="Username"
+                            name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your username!",
+                                },
+                            ]}>
+                            <Input />
+                        </Form.Item>
+                    </Col>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Form.Item
+                            label="Full Name"
+                            name="fullName"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your Name!",
+                                },
+                            ]}>
+                            <Input />
+                        </Form.Item>
+                    </Col>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Form.Item
+                            label="Email"
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your Email!",
+                                },
+                            ]}>
+                            <Input />
+                        </Form.Item>
+                    </Col>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Form.Item
+                            label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your Password!",
+                                },
+                            ]}>
+                            <Input.Password />
+                        </Form.Item>
+                    </Col>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Form.Item
+                            label="Phone Number"
+                            name="phone"
+                            rules={[
+                                {
+                                    required: true,
+                                    pattern: new RegExp(/\d+/g),
+                                    message: "Wrong format!",
+                                },
+                            ]}>
+                            <Input />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                    <Button type="primary" onClick={() => form.submit()}>
-                        Register
-                    </Button>
-                </div>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Button type="primary" onClick={() => form.submit()}>
+                            Register
+                        </Button>
+                    </Col>
+                </Row>
+                <Row justify={"center"}>
+                    <Col xs={24} md={8}>
+                        <Divider></Divider>
+                        <div className="register__auth-nav">
+                            <p>Đã có tài khoản? </p>
+                            <Link to="/login">Đăng nhập tại đây</Link>
+                        </div>
+                    </Col>
+                </Row>
             </Form>
         </>
     );
