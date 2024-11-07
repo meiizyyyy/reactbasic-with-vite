@@ -38,7 +38,7 @@ const Header = () => {
                   {
                       label: <Link to={"/login"}>Đăng Nhập</Link>,
                       key: "login",
-                      className: "menu-item-login",
+                      className: "menu-item-auth",
                       style: { marginLeft: "auto" },
                       icon: <LoginOutlined />,
                   },
@@ -50,6 +50,8 @@ const Header = () => {
                   {
                       label: `Welcome, ${user.fullName} !!`,
                       key: "setting",
+                      className: "menu-item-auth",
+                      style: { marginLeft: "auto" },
                       icon: <AliwangwangOutlined />,
                       children: [
                           {
