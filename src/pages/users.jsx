@@ -12,10 +12,14 @@ const UsersPage = () => {
     const [total, setTotal] = useState(0);
 
     //empty array
-    useEffect(() => {
-        // console.log("Run useEffect 111");
-        loadUser();
-    }, [current, pageSize]);
+    useEffect(
+        () => {
+            // console.log("Run useEffect 111");
+            loadUser();
+        },
+        [current, pageSize],
+        //Chỉ khi 2 cái này thay đổi thì Effect mới chạy
+    );
     const loadUser = async () => {
         // console.log("Run loadUser");
         const res = await fetchAllUserAPI(current, pageSize);
@@ -29,8 +33,8 @@ const UsersPage = () => {
         }
     };
 
-    console.log("CHeck current", current);
-    console.log("Check pagesize", pageSize);
+    // console.log("CHeck current", current);
+    // console.log("Check pagesize", pageSize);
     return (
         <div style={{ padding: "20px" }}>
             <UserForm loadUser={loadUser} />

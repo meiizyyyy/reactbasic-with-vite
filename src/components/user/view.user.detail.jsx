@@ -55,7 +55,7 @@ const ViewUserDetail = (props) => {
         }
     };
 
-    console.log("CHeck", preview);
+    // console.log("CHeck", preview);
     return (
         <>
             <Drawer

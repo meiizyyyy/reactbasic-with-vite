@@ -3,18 +3,25 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import FormItem from "antd/es/form/FormItem";
 import { loginAPI } from "../services/api.service";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../components/context/auth.context";
+
 const LoginPage = () => {
     const [form] = Form.useForm();
     const [isLoginClicked, setIsLoginClicked] = useState(false);
     const navigate = useNavigate();
+
+    const { setUser } = useContext(AuthContext);
     //antd onfinish
     const onFinish = async (values) => {
         console.log(values);
         setIsLoginClicked(true);
         const res = await loginAPI(values.email, values.password);
         if (res.data) {
+            console.log("check ", res.data.user);
             message.success("Đăng nhập thành công");
+            localStorage.setItem("access_token", res.data.access_token);
+            setUser(res.data.user);
             navigate("/");
         } else {
             notification.error({
@@ -62,7 +69,11 @@ const LoginPage = () => {
                                         message: "Please input your Password!",
                                     },
                                 ]}>
-                                <Input.Password />
+                                <Input.Password
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") form.submit();
+                                    }}
+                                />
                             </Form.Item>
                         </Col>
                     </Row>

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
-import { HomeOutlined, UserOutlined, BookOutlined, SettingOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { HomeOutlined, UserOutlined, BookOutlined, SettingOutlined, LoginOutlined, LogoutOutlined, AliwangwangOutlined } from "@ant-design/icons";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/auth.context";
+import "./header.css";
 
 const Header = () => {
     const [current, setCurrent] = useState("");
+
+    const { user } = useContext(AuthContext);
+    // console.log("Check context", user);
+
     const onClick = (e) => {
         console.log("click ", e);
         setCurrent(e.key);
@@ -26,26 +32,39 @@ const Header = () => {
             key: "books",
             icon: <BookOutlined />,
         },
-        {
-            label: "Cài đặt",
-            key: "setting",
-            icon: <SettingOutlined />,
-            children: [
-                {
-                    type: "group",
-                    children: [
-                        {
-                            label: <Link to={"/login"}>Đăng Nhập</Link>,
-                            key: "setting:1",
-                        },
-                        {
-                            label: "Đăng Xuất",
-                            key: "setting:2",
-                        },
-                    ],
-                },
-            ],
-        },
+
+        ...(!user.id
+            ? [
+                  {
+                      label: <Link to={"/login"}>Đăng Nhập</Link>,
+                      key: "login",
+                      className: "menu-item-login",
+                      style: { marginLeft: "auto" },
+                      icon: <LoginOutlined />,
+                  },
+              ]
+            : []),
+
+        ...(user.id
+            ? [
+                  {
+                      label: `Welcome, ${user.fullName} !!`,
+                      key: "setting",
+                      icon: <AliwangwangOutlined />,
+                      children: [
+                          {
+                              type: "group",
+                              children: [
+                                  {
+                                      label: "Đăng Xuất",
+                                      key: "logout",
+                                  },
+                              ],
+                          },
+                      ],
+                  },
+              ]
+            : []),
     ];
 
     return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
