@@ -1,7 +1,7 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Button, Popconfirm, Table } from "antd";
+import { Button, notification, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
-import { fetchAllBookAPI } from "../../services/api.service";
+import { deleteBookAPI, fetchAllBookAPI } from "../../services/api.service";
 import BookDetail from "./view.book.detail";
 import CreateBookControl from "./create.book.control";
 import CreateBookUnControl from "./create.book.uncontrolled";
@@ -35,7 +35,21 @@ const BookTable = () => {
         }
     };
 
-    const handleDeleteBook = async (id) => {};
+    const handleDeleteBook = async (id) => {
+        const resDel = await deleteBookAPI(id);
+        if (resDel) {
+            notification.success({
+                message: "Delete Book",
+                description: "Xóa sách thành công",
+            });
+            loadBook();
+        } else {
+            notification.error({
+                message: "Delete Book",
+                description: "Xóa sách thất bại",
+            });
+        }
+    };
 
     const onChange = (pagination, filters, sorter, extra) => {
         // setCurrent, setPageSize

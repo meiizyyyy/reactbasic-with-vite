@@ -1,5 +1,5 @@
 import { Category } from "@react-buddy/ide-toolbox";
-import { Modal, Button, Checkbox, Form, Input, Select, notification } from "antd";
+import { Modal, Button, Checkbox, Form, Input, Select, notification, InputNumber } from "antd";
 import FormItem from "antd/es/form/FormItem";
 import React, { useState } from "react";
 import { createBookAPI, handleUploadFile } from "../../services/api.service";
@@ -27,7 +27,7 @@ const CreateBookUnControl = (props) => {
     const handleSubmitBtn = async (values) => {
         console.log("Check value form", values);
         const { mainText, author, price, quantity, category } = values;
-        if (!setSelectedFile) {
+        if (!selectedFile) {
             notification.error({
                 message: "Create Book",
                 description: "Vui lòng tải lên hình ảnh",
@@ -100,7 +100,7 @@ const CreateBookUnControl = (props) => {
                                 message: "Vui lòng nhập giá tiền!",
                             },
                         ]}>
-                        <Input style={{ width: "100%" }} addonAfter={" đ"} />
+                        <InputNumber style={{ width: "100%" }} addonAfter={" đ"} />
                     </Form.Item>
                     <Form.Item
                         label="Số lượng"
@@ -111,7 +111,7 @@ const CreateBookUnControl = (props) => {
                                 message: "Vui lòng nhập số lượng!",
                             },
                         ]}>
-                        <Input style={{ width: "100%" }} />
+                        <InputNumber style={{ width: "100%" }} />
                     </Form.Item>
                     <Form.Item
                         name="category"
