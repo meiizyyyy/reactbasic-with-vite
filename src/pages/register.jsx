@@ -29,7 +29,7 @@ const RegisterPage = () => {
     };
     return (
         <>
-            <Form
+            <Form   
                 form={form}
                 layout="vertical"
                 name="basic"

@@ -86,7 +86,6 @@ const UserForm = (props) => {
                             onChange={(event) => {
                                 setPassword(event.target.value);
                             }}
-                            
                         />
                     </div>
                     <div>

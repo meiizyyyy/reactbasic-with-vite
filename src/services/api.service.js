@@ -74,7 +74,7 @@ const loginAPI = (email, password) => {
         username: email,
         password: password,
         delay: 3000,
-    }; 
+    };
     return axios.post(URL_BACKEND, data);
 };
 
@@ -87,4 +87,53 @@ const logoutAPI = () => {
     return axios.post(URL_BACKEND);
 };
 
-export { createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI, handleUploadFile, updateUserAvatarAPI, registerUserAPI, loginAPI, getAccountAPI, logoutAPI };
+const fetchAllBookAPI = (current, pageSize) => {
+    const URL_BACKEND = `/api/v1/book?current=${current}&pageSize=${pageSize}`;
+    // const URL_BACKEND = `/api/v1/book`;
+    return axios.get(URL_BACKEND);
+};
+
+const createBookAPI = (thumb, mainText, author, price, quantity, category) => {
+    const URL_BACKEND = "/api/v1/book";
+    const data = {
+        // lấy gt từ State
+        thumbnail: thumb,
+        mainText: mainText,
+        author: author,
+        price: price,
+        quantity: quantity,
+        category: category,
+    };
+    return axios.post(URL_BACKEND, data);
+};
+
+const updateBookAPI = (_id, thumb, mainText, author, price, quantity, category) => {
+    const URL_BACKEND = "/api/v1/book";
+    const data = {
+        // lấy gt từ State
+        _id: _id,
+        thumbnail: thumb,
+        mainText: mainText,
+        author: author,
+        price: price,
+        quantity: quantity,
+        category: category,
+    };
+    return axios.put(URL_BACKEND, data);
+};
+
+export {
+    createUserAPI,
+    updateUserAPI,
+    fetchAllUserAPI,
+    deleteUserAPI,
+    handleUploadFile,
+    updateUserAvatarAPI,
+    registerUserAPI,
+    loginAPI,
+    getAccountAPI,
+    logoutAPI,
+    fetchAllBookAPI,
+    createBookAPI,
+    updateBookAPI,
+};

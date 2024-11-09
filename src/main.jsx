@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 path: "/books",
                 element: (
                     <PrivateRoute>
-                        <BookPage />,
+                        <BookPage />
                     </PrivateRoute>
                 ),
             },
@@ -49,9 +49,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    // <React.StrictMode>
-    <AuthWrapper>
-        <RouterProvider router={router} />,
-    </AuthWrapper>,
-    // </React.StrictMode>,
+    <React.StrictMode>
+        <AuthWrapper>
+            <RouterProvider router={router} />
+        </AuthWrapper>
+    </React.StrictMode>,
 );
