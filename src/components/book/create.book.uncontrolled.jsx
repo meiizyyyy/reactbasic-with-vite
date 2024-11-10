@@ -67,6 +67,11 @@ const CreateBookUnControl = (props) => {
                 onOk={() => {
                     form.submit();
                 }}
+                // okButtonProps={
+                //     {
+                //         loading:true
+                //     }
+                // }
                 onCancel={resetAndCloseModal}>
                 <Form form={form} onFinish={handleSubmitBtn} layout="vertical">
                     <Form.Item
